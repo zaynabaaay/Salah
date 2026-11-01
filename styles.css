@@ -1,9 +1,15 @@
 body {
   margin: 0;
   background:
-    linear-gradient(90deg, rgba(98, 127, 148, 0.6), transparent 32%, transparent 68%, rgba(98, 127, 148, 0.6)),
-    radial-gradient(ellipse at 50% 25%, #fff, transparent 70%),
-    linear-gradient(160deg, #dce4e9, #eef1f3 45%, #b8c7d1);
+    radial-gradient(ellipse 60% 20% at 42% 12%, rgba(255, 255, 255, 0.85), transparent 75%),
+    radial-gradient(ellipse 65% 21% at 63% 49%, rgba(255, 255, 255, 0.75), transparent 75%),
+    radial-gradient(ellipse 60% 19% at 35% 84%, rgba(255, 255, 255, 0.8), transparent 75%),
+    radial-gradient(ellipse 85% 20% at -12% 7%, rgba(105, 132, 151, 0.55), transparent 80%),
+    radial-gradient(ellipse 75% 18% at 105% 29%, rgba(105, 132, 151, 0.5), transparent 80%),
+    radial-gradient(ellipse 80% 21% at -10% 48%, rgba(105, 132, 151, 0.45), transparent 80%),
+    radial-gradient(ellipse 90% 24% at 110% 70%, rgba(105, 132, 151, 0.5), transparent 80%),
+    radial-gradient(ellipse 80% 18% at 15% 99%, rgba(105, 132, 151, 0.45), transparent 80%),
+    #e5eaed;
   background-repeat: no-repeat;
 }
 
