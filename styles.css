@@ -77,13 +77,11 @@ figcaption {
   letter-spacing: 0.035em;
 }
 
-/* Shared section and sticky-stage layout */
-section {
-  min-height: 100svh;
-  padding: var(--gutter);
+/* Shared structure */
+.story {
+  min-height: var(--story-height, 100svh);
+  padding: 0;
 }
-
-.story { padding: 0; }
 
 .story-stage {
   position: sticky;
@@ -105,28 +103,31 @@ section {
   gap: var(--space-4);
 }
 
-/* Shared heading reveals; original timing */
-.story h2 {
-  opacity: clamp(0, calc(var(--story-progress, 0) * 12.5), 1);
+.story-content--centered {
+  align-items: center;
+  text-align: center;
 }
 
-/* Opening: centred title and verse share one grid cell */
-.opening, .warning { min-height: 320svh; }
-.meaning { min-height: 400svh; }
-.seriousness { min-height: 260svh; }
+/* One reveal rule; each block declares its timing in HTML */
+.reveal {
+  opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0)) * var(--reveal-speed, 5)), 1);
+}
 
-.opening-stage {
+.story-stage > h2 { --reveal-speed: 12.5; }
+
+/* Opening crossfade */
+.story-stage--opening {
   grid-template-rows: 1fr;
   place-items: center;
   text-align: center;
 }
 
-.opening-title, .opening-verse {
+.story-stage--opening > * {
   grid-area: 1 / 1;
-  width: min(100%, var(--reading-width));
+  width: 100%;
 }
 
-.opening-title p {
+.subtitle {
   margin-top: var(--space-2);
   color: var(--muted);
 }
@@ -136,82 +137,19 @@ section {
   transform: scale(calc(1 - var(--story-progress, 0) * 0.06));
 }
 
-.opening-verse {
-  opacity: clamp(0, calc((var(--story-progress, 0) - 0.25) * 5), 1);
-}
-
-.verse-rest {
-  opacity: clamp(0, calc((var(--story-progress, 0) - 0.6) * 5), 1);
-}
-
 .verse-opening::after {
   content: "…";
   position: absolute;
   opacity: clamp(0, calc(1 - (var(--story-progress, 0) - 0.6) * 5), 1);
 }
 
-/* Meaning: left-aligned list and supporting hadith */
-.meaning-points {
+/* List recedes after all three points appear */
+.receding-points {
   margin: 0;
   padding-left: var(--space-3);
   opacity: clamp(0.4, calc(1 - (var(--story-progress, 0) - 0.64) * 6), 1);
   transform: scale(calc(1 - clamp(0, (var(--story-progress, 0) - 0.64) * 10, 1) * 0.03));
 }
 
-.meaning-points li {
-  opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.12)) * 10), 1);
-}
-
-.meaning-points li::marker { color: var(--muted); }
-.meaning-points li + li { margin-top: var(--space-1); }
-.meaning-points li:nth-child(2) { --reveal-at: 0.28; }
-.meaning-points li:nth-child(3) { --reveal-at: 0.44; }
-
-.meaning-hadith {
-  opacity: clamp(0, calc((var(--story-progress, 0) - 0.72) * 10), 1);
-}
-
-/* Warning and seriousness reveals */
-.warning-verses p, .warning-verses figcaption {
-  opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.15)) * 5), 1);
-}
-
-.warning-verses p + p, .warning-verses figcaption { --reveal-at: 0.5; }
-
-.seriousness-hadith {
-  opacity: clamp(0, calc((var(--story-progress, 0) - 0.2) * 5), 1);
-}
-
-/* Importance: context, question, then answer */
-.importance { min-height: 320svh; }
-
-.importance-context,
-.importance-dialogue p,
-.importance-dialogue figcaption {
-  opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.12)) * 5), 1);
-}
-
-.importance-dialogue { --reveal-at: 0.35; }
-.importance-answer,
-.importance-dialogue figcaption { --reveal-at: 0.6; }
-
-/* Returning: one gentle reveal, then a reading pause */
-.returning { min-height: 260svh; }
-
-.returning-verse {
-  opacity: clamp(0, calc((var(--story-progress, 0) - 0.2) * 2.5), 1);
-}
-
-/* Reflection: two questions, followed by a quiet ending */
-.reflection { min-height: 300svh; }
-
-.reflection .story-content {
-  align-items: center;
-  text-align: center;
-}
-
-.reflection p {
-  opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.15)) * 5), 1);
-}
-
-.reflection-final { --reveal-at: 0.45; }
+.receding-points li::marker { color: var(--muted); }
+.receding-points li + li { margin-top: var(--space-1); }
