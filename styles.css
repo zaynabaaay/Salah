@@ -184,3 +184,43 @@ section.warning h2 {
 
 .warning-verses p + p,
 .warning-verses figcaption { --reveal-at: 0.5; }
+
+.seriousness {
+  min-height: 260svh;
+  padding: 0;
+}
+
+.seriousness-stage {
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  min-height: 100svh;
+  width: min(100%, 48rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+section.seriousness h2 {
+  margin: 0;
+  opacity: clamp(0, calc(var(--story-progress, 0) * 12.5), 1);
+  transform: none;
+  transition: none;
+}
+
+.seriousness-hadith {
+  margin: 0;
+  opacity: clamp(0, calc((var(--story-progress, 0) - 0.2) * 5), 1);
+}
+
+.seriousness-hadith blockquote {
+  margin: 0 0 1rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+  line-height: 1.5;
+}
+
+.seriousness-hadith p { margin: 0; }
+.seriousness-hadith p + p { margin-top: 1rem; }
