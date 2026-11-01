@@ -1,6 +1,5 @@
 const sections = document.querySelectorAll('section');
-const opening = document.querySelector('.opening');
-const stage = opening.querySelector('.opening-stage');
+const stories = document.querySelectorAll('.opening, .meaning');
 let ticking = false;
 
 function updateActiveSection() {
@@ -11,11 +10,14 @@ function updateActiveSection() {
     section.classList.toggle('is-active', top <= middle && bottom > middle);
   });
 
-  const distance = opening.offsetHeight - stage.offsetHeight;
-  const progress = Math.max(0, Math.min(1,
-    -opening.getBoundingClientRect().top / Math.max(1, distance)
-  ));
-  opening.style.setProperty('--story-progress', progress);
+  stories.forEach((section) => {
+    const stage = section.firstElementChild;
+    const distance = section.offsetHeight - stage.offsetHeight;
+    const progress = Math.max(0, Math.min(1,
+      -section.getBoundingClientRect().top / Math.max(1, distance)
+    ));
+    section.style.setProperty('--story-progress', progress);
+  });
 
   ticking = false;
 }

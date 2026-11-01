@@ -98,3 +98,65 @@ section.is-active :is(h1, h2) {
   .opening-title, .opening-verse, .verse-rest { opacity: 1; transform: none; }
   .verse-opening::after { content: none; }
 }
+
+.meaning {
+  min-height: 400svh;
+  padding: 0;
+}
+
+.meaning-stage {
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  min-height: 100svh;
+  width: min(100%, 48rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+section.meaning h2 {
+  margin: 0;
+  opacity: clamp(0, calc(var(--story-progress, 0) * 12.5), 1);
+  transform: none;
+  transition: none;
+}
+
+.meaning-points {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.5;
+  opacity: clamp(0.4, calc(1 - (var(--story-progress, 0) - 0.64) * 6), 1);
+  transform: scale(calc(1 - clamp(0, (var(--story-progress, 0) - 0.64) * 10, 1) * 0.03));
+}
+
+.meaning-points li {
+  opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.12)) * 10), 1);
+}
+
+.meaning-points li + li { margin-top: 0.5rem; }
+.meaning-points li:nth-child(2) { --reveal-at: 0.28; }
+.meaning-points li:nth-child(3) { --reveal-at: 0.44; }
+
+.meaning-hadith {
+  margin: 0;
+  opacity: clamp(0, calc((var(--story-progress, 0) - 0.72) * 10), 1);
+}
+
+.meaning-hadith blockquote {
+  margin: 0 0 1rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meaning { min-height: 100svh; }
+  .meaning-stage { position: static; }
+  section.meaning h2, .meaning-points, .meaning-points li, .meaning-hadith {
+    opacity: 1;
+    transform: none;
+  }
+}
