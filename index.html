@@ -4,25 +4,75 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Neglecting Salah</title>
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
   <script src="presentation.js?v=2" defer></script>
 </head>
 <body>
   <main>
-    <section class="story" style="--story-height: 320svh" aria-labelledby="title">
+    <section class="story" style="--story-height: 1800svh; --intro-end: 0.06; --intro-fade: 0.03" aria-labelledby="title">
       <div class="story-stage story-stage--opening">
         <div class="opening-title">
           <h1 id="title">Neglecting Salah</h1>
           <p class="subtitle narration">Why prayer cannot be treated casually</p>
         </div>
-        <figure class="reveal" style="--reveal-at: 0.25">
-          <blockquote cite="https://quran.com/31/17?translations=20">
-            <p class="quran-arabic" lang="ar" dir="rtl">يَٰبُنَيَّ أَقِمِ ٱلصَّلَوٰةَ وَأۡمُرۡ بِٱلۡمَعۡرُوفِ وَٱنۡهَ عَنِ ٱلۡمُنكَرِ وَٱصۡبِرۡ عَلَىٰ مَآ أَصَابَكَۖ إِنَّ ذَٰلِكَ مِنۡ عَزۡمِ ٱلۡأُمُورِ</p>
-            <p class="passage">
-            <span class="verse-opening">O my son, establish prayer<span class="reveal" style="--reveal-at: 0.6">,</span></span><span class="reveal" style="--reveal-at: 0.6"> enjoin what is right, forbid what is wrong, and be patient over what befalls you. Indeed, [all] that is of the matters [requiring] resolve.</span></p>
-          </blockquote>
-          <figcaption class="reveal" style="--reveal-at: 0.6">Qur’an 31:17 — Saheeh International</figcaption>
-        </figure>
+        <div class="verse-stage">
+          <figure class="ayah" data-verse="31:12" style="--enter: 0.065; --leave: 0.17; --fade: 0.015">
+            <blockquote cite="https://quran.com/31/12?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">وَلَقَدۡ ءَاتَيۡنَا لُقۡمَٰنَ ٱلۡحِكۡمَةَ أَنِ ٱشۡكُرۡ لِلَّهِۚ وَمَن يَشۡكُرۡ فَإِنَّمَا يَشۡكُرُ لِنَفۡسِهِۦۖ وَمَن كَفَرَ فَإِنَّ ٱللَّهَ غَنِيٌّ حَمِيدٞ</p>
+              <p class="passage">And We had certainly given Luqman wisdom [and said], "Be grateful to Allah." And whoever is grateful is grateful for [the benefit of] himself. And whoever denies [His favor] - then indeed, Allah is Free of need and Praiseworthy.</p>
+            </blockquote>
+            <figcaption>Qur’an 31:12 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah" data-verse="31:13" style="--enter: 0.17; --leave: 0.265; --fade: 0.015">
+            <blockquote cite="https://quran.com/31/13?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">وَإِذۡ قَالَ لُقۡمَٰنُ لِٱبۡنِهِۦ وَهُوَ يَعِظُهُۥ يَٰبُنَيَّ لَا تُشۡرِكۡ بِٱللَّهِۖ إِنَّ ٱلشِّرۡكَ لَظُلۡمٌ عَظِيمٞ</p>
+              <p class="passage">And [mention, O Muhammad], when Luqman said to his son while he was instructing him, "O my son, do not associate [anything] with Allah. Indeed, association [with Him] is great injustice."</p>
+            </blockquote>
+            <figcaption>Qur’an 31:13 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah" data-verse="31:14" style="--enter: 0.265; --leave: 0.37; --fade: 0.015">
+            <blockquote cite="https://quran.com/31/14?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">وَوَصَّيۡنَا ٱلۡإِنسَٰنَ بِوَٰلِدَيۡهِ حَمَلَتۡهُ أُمُّهُۥ وَهۡنًا عَلَىٰ وَهۡنٖ وَفِصَٰلُهُۥ فِي عَامَيۡنِ أَنِ ٱشۡكُرۡ لِي وَلِوَٰلِدَيۡكَ إِلَيَّ ٱلۡمَصِيرُ</p>
+              <p class="passage">And We have enjoined upon man [care] for his parents. His mother carried him, [increasing her] in weakness upon weakness, and his weaning is in two years. Be grateful to Me and to your parents; to Me is the [final] destination.</p>
+            </blockquote>
+            <figcaption>Qur’an 31:14 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah ayah--long" data-verse="31:15" style="--enter: 0.37; --leave: 0.49; --fade: 0.015">
+            <blockquote cite="https://quran.com/31/15?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">وَإِن جَٰهَدَاكَ عَلَىٰٓ أَن تُشۡرِكَ بِي مَا لَيۡسَ لَكَ بِهِۦ عِلۡمٞ فَلَا تُطِعۡهُمَاۖ وَصَاحِبۡهُمَا فِي ٱلدُّنۡيَا مَعۡرُوفٗاۖ وَٱتَّبِعۡ سَبِيلَ مَنۡ أَنَابَ إِلَيَّۚ ثُمَّ إِلَيَّ مَرۡجِعُكُمۡ فَأُنَبِّئُكُم بِمَا كُنتُمۡ تَعۡمَلُونَ</p>
+              <p class="passage">But if they endeavor to make you associate with Me that of which you have no knowledge, do not obey them but accompany them in [this] world with appropriate kindness and follow the way of those who turn back to Me [in repentance]. Then to Me will be your return, and I will inform you about what you used to do.</p>
+            </blockquote>
+            <figcaption>Qur’an 31:15 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah ayah--long" data-verse="31:16" style="--enter: 0.49; --leave: 0.6; --fade: 0.015">
+            <blockquote cite="https://quran.com/31/16?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">يَٰبُنَيَّ إِنَّهَآ إِن تَكُ مِثۡقَالَ حَبَّةٖ مِّنۡ خَرۡدَلٖ فَتَكُن فِي صَخۡرَةٍ أَوۡ فِي ٱلسَّمَٰوَٰتِ أَوۡ فِي ٱلۡأَرۡضِ يَأۡتِ بِهَا ٱللَّهُۚ إِنَّ ٱللَّهَ لَطِيفٌ خَبِيرٞ</p>
+              <p class="passage">[And Luqman said], "O my son, indeed if it [i.e., a wrong] should be the weight of a mustard seed and should be within a rock or [anywhere] in the heavens or in the earth, Allah will bring it forth. Indeed, Allah is Subtle and Aware.</p>
+            </blockquote>
+            <figcaption>Qur’an 31:16 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah ayah--focus" data-verse="31:17" style="--enter: 0.6; --leave: 0.78; --fade: 0.015">
+            <blockquote cite="https://quran.com/31/17?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">يَٰبُنَيَّ أَقِمِ ٱلصَّلَوٰةَ وَأۡمُرۡ بِٱلۡمَعۡرُوفِ وَٱنۡهَ عَنِ ٱلۡمُنكَرِ وَٱصۡبِرۡ عَلَىٰ مَآ أَصَابَكَۖ إِنَّ ذَٰلِكَ مِنۡ عَزۡمِ ٱلۡأُمُورِ</p>
+              <p class="passage">O my son, establish prayer, enjoin what is right, forbid what is wrong, and be patient over what befalls you. Indeed, [all] that is of the matters [requiring] resolve.</p>
+            </blockquote>
+            <figcaption>Qur’an 31:17 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah" data-verse="31:18" style="--enter: 0.78; --leave: 0.885; --fade: 0.015">
+            <blockquote cite="https://quran.com/31/18?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">وَلَا تُصَعِّرۡ خَدَّكَ لِلنَّاسِ وَلَا تَمۡشِ فِي ٱلۡأَرۡضِ مَرَحًاۖ إِنَّ ٱللَّهَ لَا يُحِبُّ كُلَّ مُخۡتَالٖ فَخُورٖ</p>
+              <p class="passage">And do not turn your cheek [in contempt] toward people and do not walk through the earth exultantly. Indeed, Allah does not like everyone self-deluded and boastful.</p>
+            </blockquote>
+            <figcaption>Qur’an 31:18 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah" data-verse="31:19" style="--enter: 0.885; --leave: 1.04; --fade: 0.015">
+            <blockquote cite="https://quran.com/31/19?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">وَٱقۡصِدۡ فِي مَشۡيِكَ وَٱغۡضُضۡ مِن صَوۡتِكَۚ إِنَّ أَنكَرَ ٱلۡأَصۡوَٰتِ لَصَوۡتُ ٱلۡحَمِيرِ</p>
+              <p class="passage">And be moderate in your pace and lower your voice; indeed, the most disagreeable of sounds is the voice of donkeys."</p>
+            </blockquote>
+            <figcaption>Qur’an 31:19 — Saheeh International</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
     <section class="story" style="--story-height: 400svh" aria-labelledby="meaning">
@@ -43,23 +93,37 @@
         </div>
       </div>
     </section>
-    <section class="story" style="--story-height: 320svh" aria-labelledby="warning">
+    <section class="story" style="--story-height: 900svh" aria-labelledby="warning">
       <div class="story-stage">
         <h2 class="reveal" id="warning">Qur’anic Warning</h2>
         <div class="verse-stage">
-          <figure class="verse-passing">
+          <figure class="ayah" data-verse="19:59" style="--enter: 0.1; --leave: 0.32; --fade: 0.025">
             <blockquote cite="https://quran.com/19/59?translations=20">
-              <p class="quran-arabic" lang="ar" dir="rtl">فَخَلَفَ مِنۢ بَعۡدِهِمۡ خَلۡفٌ أَضَاعُواْ ٱلصَّلَوٰةَ وَٱتَّبَعُواْ ٱلشَّهَوَٰتِۖ فَسَوۡفَ يَلۡقَوۡنَ غَيًّا</p>
+              <p class="quran-arabic" lang="ar" dir="rtl">فَخَلَفَ مِنۢ بَعۡدِهِمۡ خَلۡفٌ أَضَاعُواْ ٱلصَّلَوٰةَ وَٱتَّبَعُواْ ٱلشَّهَوَٰتِۖ فَسَوۡفَ يَلۡقَوۡنَ غَيًّا</p>
               <p class="passage">But there came after them successors [i.e., later generations] who neglected prayer and pursued desires; so they are going to meet evil -</p>
             </blockquote>
             <figcaption>Qur’an 19:59 — Saheeh International</figcaption>
           </figure>
-          <figure class="reveal" style="--reveal-at: 0.6">
+          <figure class="ayah" data-verse="19:60" style="--enter: 0.32; --leave: 0.54; --fade: 0.025">
             <blockquote cite="https://quran.com/19/60?translations=20">
               <p class="quran-arabic" lang="ar" dir="rtl">إِلَّا مَن تَابَ وَءَامَنَ وَعَمِلَ صَٰلِحٗا فَأُوْلَٰٓئِكَ يَدۡخُلُونَ ٱلۡجَنَّةَ وَلَا يُظۡلَمُونَ شَيۡـٔٗا</p>
               <p class="passage">Except those who repent, believe and do righteousness; for those will enter Paradise and will not be wronged at all.</p>
             </blockquote>
             <figcaption>Qur’an 19:60 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah" data-verse="74:42" style="--enter: 0.54; --leave: 0.76; --fade: 0.025">
+            <blockquote cite="https://quran.com/74/42?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">مَا سَلَكَكُمۡ فِي سَقَرَ</p>
+              <p class="passage">[And asking them], "What put you into Saqar?"</p>
+            </blockquote>
+            <figcaption>Qur’an 74:42 — Saheeh International</figcaption>
+          </figure>
+          <figure class="ayah" data-verse="74:43" style="--enter: 0.76; --leave: 1.08; --fade: 0.025">
+            <blockquote cite="https://quran.com/74/43?translations=20">
+              <p class="quran-arabic" lang="ar" dir="rtl">قَالُواْ لَمۡ نَكُ مِنَ ٱلۡمُصَلِّينَ</p>
+              <p class="passage">They will say, "We were not of those who prayed,</p>
+            </blockquote>
+            <figcaption>Qur’an 74:43 — Saheeh International</figcaption>
           </figure>
         </div>
       </div>
@@ -101,7 +165,7 @@
             <blockquote cite="https://quran.com/39/53?translations=20">
               <p class="quran-arabic" lang="ar" dir="rtl">قُلۡ يَٰعِبَادِيَ ٱلَّذِينَ أَسۡرَفُواْ عَلَىٰٓ أَنفُسِهِمۡ لَا تَقۡنَطُواْ مِن رَّحۡمَةِ ٱللَّهِۚ إِنَّ ٱللَّهَ يَغۡفِرُ ٱلذُّنُوبَ جَمِيعًاۚ إِنَّهُۥ هُوَ ٱلۡغَفُورُ ٱلرَّحِيمُ</p>
               <p class="passage">
-              “O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful.”</p>
+              Say, "O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful."</p>
             </blockquote>
             <figcaption>Qur’an 39:53 — Saheeh International</figcaption>
           </figure>
