@@ -92,13 +92,6 @@ section.is-active :is(h1, h2) {
   opacity: clamp(0, calc(1 - (var(--story-progress, 0) - 0.6) * 5), 1);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .opening { min-height: 100svh; }
-  .opening-stage { position: static; display: flex; flex-direction: column; gap: 2rem; }
-  .opening-title, .opening-verse, .verse-rest { opacity: 1; transform: none; }
-  .verse-opening::after { content: none; }
-}
-
 .meaning {
   min-height: 400svh;
   padding: 0;
@@ -150,13 +143,4 @@ section.meaning h2 {
   margin: 0 0 1rem;
   font-size: clamp(1.125rem, 2.5vw, 1.75rem);
   line-height: 1.5;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .meaning { min-height: 100svh; }
-  .meaning-stage { position: static; }
-  section.meaning h2, .meaning-points, .meaning-points li, .meaning-hadith {
-    opacity: 1;
-    transform: none;
-  }
 }
