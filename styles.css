@@ -213,3 +213,10 @@ section:not(.story).is-active h2 {
 .importance-dialogue { --reveal-at: 0.35; }
 .importance-answer,
 .importance-dialogue figcaption { --reveal-at: 0.6; }
+
+/* Returning: one gentle reveal, then a reading pause */
+.returning { min-height: 260svh; }
+
+.returning-verse {
+  opacity: clamp(0, calc((var(--story-progress, 0) - 0.2) * 2.5), 1);
+}
