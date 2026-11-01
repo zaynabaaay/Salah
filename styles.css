@@ -101,7 +101,7 @@ blockquote, .lead {
   line-height: 1.45;
 }
 
-blockquote, .verse {
+blockquote {
   display: flex;
   flex-direction: column;
   gap: var(--verse-gap);
@@ -208,3 +208,21 @@ figcaption {
 }
 
 .receding-points li + li { margin-top: var(--space-2); }
+
+/* Sequential ayat share one fixed reading area. */
+.verse-stage {
+  width: 100%;
+  display: grid;
+}
+
+.verse-stage > figure {
+  grid-area: 1 / 1;
+  align-self: center;
+}
+
+.verse-passing {
+  opacity: min(
+    clamp(0, calc((var(--story-progress, 0) - 0.1) * 5), 1),
+    clamp(0, calc((0.6 - var(--story-progress, 0)) * 5), 1)
+  );
+}
