@@ -30,12 +30,6 @@ section.is-active :is(h1, h2) {
   transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  section :is(h1, h2) {
-    transition: none;
-  }
-}
-
 .opening {
   min-height: 320svh;
   padding: 0;
