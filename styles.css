@@ -29,3 +29,66 @@ section.is-active :is(h1, h2) {
     transition: none;
   }
 }
+
+.opening {
+  min-height: 320svh;
+  padding: 0;
+}
+
+.opening-stage {
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  min-height: 100svh;
+  padding: clamp(1rem, 4vw, 3rem);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.opening-title,
+.opening-verse {
+  grid-area: 1 / 1;
+  width: min(100%, 42rem);
+}
+
+.opening-title {
+  opacity: clamp(0, calc(1 - (var(--story-progress, 0) - 0.1) * 5), 1);
+  transform: scale(calc(1 - var(--story-progress, 0) * 0.06));
+}
+
+.opening h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4rem);
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.opening-verse {
+  margin: 0;
+  opacity: clamp(0, calc((var(--story-progress, 0) - 0.25) * 5), 1);
+}
+
+.opening blockquote {
+  margin: 0 0 1rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+  line-height: 1.5;
+}
+
+.verse-rest {
+  opacity: clamp(0, calc((var(--story-progress, 0) - 0.6) * 5), 1);
+}
+
+.verse-opening::after {
+  content: "…";
+  position: absolute;
+  opacity: clamp(0, calc(1 - (var(--story-progress, 0) - 0.6) * 5), 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .opening { min-height: 100svh; }
+  .opening-stage { position: static; display: flex; flex-direction: column; gap: 2rem; }
+  .opening-title, .opening-verse, .verse-rest { opacity: 1; transform: none; }
+  .verse-opening::after { content: none; }
+}
