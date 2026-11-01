@@ -1,5 +1,5 @@
 const sections = document.querySelectorAll('section');
-const stories = document.querySelectorAll('.opening, .meaning');
+const stories = document.querySelectorAll('.opening, .meaning, .warning');
 let ticking = false;
 
 function updateActiveSection() {

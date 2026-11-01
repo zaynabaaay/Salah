@@ -138,3 +138,49 @@ section.meaning h2 {
   font-size: clamp(1.125rem, 2.5vw, 1.75rem);
   line-height: 1.5;
 }
+
+.warning {
+  min-height: 320svh;
+  padding: 0;
+}
+
+.warning-stage {
+  position: sticky;
+  top: 0;
+  box-sizing: border-box;
+  min-height: 100svh;
+  width: min(100%, 48rem);
+  margin-inline: auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+section.warning h2 {
+  margin: 0;
+  opacity: clamp(0, calc(var(--story-progress, 0) * 12.5), 1);
+  transform: none;
+  transition: none;
+}
+
+.warning-verses { margin: 0; }
+
+.warning-verses blockquote {
+  margin: 0;
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
+  line-height: 1.5;
+}
+
+.warning-verses p { margin: 0; }
+.warning-verses p + p,
+.warning-verses figcaption { margin-top: 1.5rem; }
+
+.warning-verses p,
+.warning-verses figcaption {
+  opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.15)) * 5), 1);
+}
+
+.warning-verses p + p,
+.warning-verses figcaption { --reveal-at: 0.5; }
