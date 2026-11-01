@@ -200,3 +200,16 @@ section:not(.story).is-active h2 {
 .seriousness-hadith {
   opacity: clamp(0, calc((var(--story-progress, 0) - 0.2) * 5), 1);
 }
+
+/* Importance: context, question, then answer */
+.importance { min-height: 320svh; }
+
+.importance-context,
+.importance-dialogue p,
+.importance-dialogue figcaption {
+  opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.12)) * 5), 1);
+}
+
+.importance-dialogue { --reveal-at: 0.35; }
+.importance-answer,
+.importance-dialogue figcaption { --reveal-at: 0.6; }
