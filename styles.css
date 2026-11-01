@@ -21,11 +21,11 @@
   --font-display: Georgia, "Times New Roman", serif;
   --ink: #26343e;
   --muted: #536571;
-  --reading-width: clamp(42rem, 72vw, 58rem);
+  --reading-width: clamp(42rem, 76vw, 62rem);
+  --passage-measure: 40ch;
+  --pause-gap: clamp(2rem, 6svh, 4rem);
   --gutter: clamp(1rem, 4vw, 3rem);
-  --space-1: 0.5rem;
   --space-2: 1rem;
-  --space-3: 1.5rem;
   --space-4: 2rem;
 }
 
@@ -67,6 +67,8 @@ h1 {
 
 h2 {
   max-width: 24ch;
+  margin-inline: auto;
+  text-align: center;
   font-size: var(--size-heading);
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -82,19 +84,21 @@ blockquote, .lead {
 }
 
 .passage, .lead {
+  width: 100%;
+  max-inline-size: var(--passage-measure);
+  margin-inline: auto;
   font-size: var(--size-passage);
   line-height: 1.28;
   text-wrap: balance;
 }
 
 .narration {
+  max-inline-size: 52ch;
+  margin-inline: auto;
+  text-wrap: balance;
   font-family: var(--font-body);
   font-size: var(--size-narration);
   line-height: 1.45;
-}
-
-.quran {
-  text-align: center;
 }
 
 blockquote, .verse {
@@ -134,23 +138,24 @@ figcaption {
   width: min(100%, calc(var(--reading-width) + var(--gutter) * 2));
   margin-inline: auto;
   padding: min(var(--gutter), 4svh) var(--gutter);
-  display: grid;
-  grid-template-rows: auto 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: var(--stage-gap);
+  text-align: center;
 }
 
 .story-content {
-  align-self: center;
+  width: 100%;
   min-width: 0;
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 }
 
-.story-content--centered {
-  align-items: center;
-  text-align: center;
-}
+.story-content--reflection { gap: var(--pause-gap); }
 
 /* One reveal rule; each block declares its timing in HTML */
 .reveal {
@@ -161,9 +166,9 @@ figcaption {
 
 /* Opening crossfade */
 .story-stage--opening {
+  display: grid;
   grid-template-rows: 1fr;
   place-items: center;
-  text-align: center;
 }
 
 .story-stage--opening > * {
@@ -181,6 +186,8 @@ figcaption {
   transform: scale(calc(1 - var(--story-progress, 0) * 0.06));
 }
 
+.verse-opening { display: block; }
+
 .verse-opening::after {
   content: "…";
   position: absolute;
@@ -189,11 +196,15 @@ figcaption {
 
 /* List recedes after all three points appear */
 .receding-points {
-  margin: 0;
-  padding-left: var(--space-3);
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  font-size: var(--size-passage);
+  line-height: 1.35;
   opacity: clamp(0.4, calc(1 - (var(--story-progress, 0) - 0.64) * 6), 1);
   transform: scale(calc(1 - clamp(0, (var(--story-progress, 0) - 0.64) * 10, 1) * 0.03));
 }
 
-.receding-points li::marker { color: var(--muted); }
-.receding-points li + li { margin-top: var(--space-1); }
+.receding-points li + li { margin-top: var(--space-2); }
