@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+}
+
+section {
+  box-sizing: border-box;
+  min-height: 100svh;
+  padding: 2rem;
+  border-bottom: 1px solid #ddd;
+}
