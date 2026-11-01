@@ -1,5 +1,27 @@
+/* Design tokens */
+:root {
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  --ink: #26343e;
+  --muted: #536571;
+  --content-width: 56rem;
+  --reading-width: 42rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+}
+
+/* Base typography and continuous background */
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: clamp(1.0625rem, 1.2vw, 1.25rem);
+  line-height: 1.6;
   background:
     radial-gradient(ellipse 60% 20% at 42% 12%, rgba(255, 255, 255, 0.85), transparent 75%),
     radial-gradient(ellipse 65% 21% at 63% 49%, rgba(255, 255, 255, 0.75), transparent 75%),
@@ -13,43 +35,115 @@ body {
   background-repeat: no-repeat;
 }
 
-section {
-  box-sizing: border-box;
-  min-height: 100svh;
-  padding: 2rem;
+h1, h2, p, figure, blockquote { margin: 0; }
+
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  text-wrap: balance;
 }
 
-section :is(h1, h2) {
+h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  max-width: 24ch;
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+figure {
+  width: 100%;
+  max-width: var(--reading-width);
+}
+
+blockquote {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.3vw, 1.875rem);
+  line-height: 1.55;
+}
+
+blockquote p + p { margin-top: var(--space-4); }
+
+figcaption {
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: clamp(0.8125rem, 1.1vw, 1rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.035em;
+}
+
+/* Shared section and sticky-stage layout */
+section {
+  min-height: 100svh;
+  padding: var(--gutter);
+}
+
+section:not(.story) {
+  display: flex;
+  align-items: center;
+}
+
+section > h2 {
+  width: min(100%, var(--reading-width));
+  margin-inline: auto;
+}
+
+.story { padding: 0; }
+
+.story-stage {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  width: min(100%, var(--content-width));
+  margin-inline: auto;
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+/* Shared heading reveals; original timing */
+section:not(.story) h2 {
   opacity: 0.65;
   transform: translateY(8px);
   transition: opacity 300ms ease, transform 300ms ease;
 }
 
-section.is-active :is(h1, h2) {
+section:not(.story).is-active h2 {
   opacity: 1;
   transform: translateY(0);
 }
 
-.opening {
-  min-height: 320svh;
-  padding: 0;
+.story h2 {
+  opacity: clamp(0, calc(var(--story-progress, 0) * 12.5), 1);
 }
 
+/* Opening: centred title and verse share one grid cell */
+.opening, .warning { min-height: 320svh; }
+.meaning { min-height: 400svh; }
+.seriousness { min-height: 260svh; }
+
 .opening-stage {
-  position: sticky;
-  top: 0;
-  box-sizing: border-box;
-  min-height: 100svh;
-  padding: clamp(1rem, 4vw, 3rem);
   display: grid;
   place-items: center;
   text-align: center;
 }
 
-.opening-title,
-.opening-verse {
+.opening-title, .opening-verse {
   grid-area: 1 / 1;
-  width: min(100%, 42rem);
+  width: min(100%, var(--reading-width));
+}
+
+.opening-title p {
+  margin-top: var(--space-2);
+  color: var(--muted);
 }
 
 .opening-title {
@@ -57,23 +151,8 @@ section.is-active :is(h1, h2) {
   transform: scale(calc(1 - var(--story-progress, 0) * 0.06));
 }
 
-.opening h1 {
-  margin: 0;
-  font-size: clamp(2rem, 6vw, 4rem);
-  opacity: 1;
-  transform: none;
-  transition: none;
-}
-
 .opening-verse {
-  margin: 0;
   opacity: clamp(0, calc((var(--story-progress, 0) - 0.25) * 5), 1);
-}
-
-.opening blockquote {
-  margin: 0 0 1rem;
-  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
-  line-height: 1.5;
 }
 
 .verse-rest {
@@ -86,36 +165,10 @@ section.is-active :is(h1, h2) {
   opacity: clamp(0, calc(1 - (var(--story-progress, 0) - 0.6) * 5), 1);
 }
 
-.meaning {
-  min-height: 400svh;
-  padding: 0;
-}
-
-.meaning-stage {
-  position: sticky;
-  top: 0;
-  box-sizing: border-box;
-  min-height: 100svh;
-  width: min(100%, 48rem);
-  margin-inline: auto;
-  padding: clamp(1rem, 4vw, 3rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-section.meaning h2 {
-  margin: 0;
-  opacity: clamp(0, calc(var(--story-progress, 0) * 12.5), 1);
-  transform: none;
-  transition: none;
-}
-
+/* Meaning: left-aligned list and supporting hadith */
 .meaning-points {
   margin: 0;
-  padding-left: 1.25rem;
-  line-height: 1.5;
+  padding-left: var(--space-3);
   opacity: clamp(0.4, calc(1 - (var(--story-progress, 0) - 0.64) * 6), 1);
   transform: scale(calc(1 - clamp(0, (var(--story-progress, 0) - 0.64) * 10, 1) * 0.03));
 }
@@ -124,103 +177,26 @@ section.meaning h2 {
   opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.12)) * 10), 1);
 }
 
-.meaning-points li + li { margin-top: 0.5rem; }
+.meaning-points li::marker { color: var(--muted); }
+.meaning-points li + li { margin-top: var(--space-1); }
 .meaning-points li:nth-child(2) { --reveal-at: 0.28; }
 .meaning-points li:nth-child(3) { --reveal-at: 0.44; }
 
 .meaning-hadith {
-  margin: 0;
   opacity: clamp(0, calc((var(--story-progress, 0) - 0.72) * 10), 1);
 }
 
-.meaning-hadith blockquote {
-  margin: 0 0 1rem;
-  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
-  line-height: 1.5;
+/* Warning and seriousness: focused reading columns */
+.warning-stage, .seriousness-stage {
+  width: min(100%, calc(var(--reading-width) + var(--gutter) * 2));
 }
 
-.warning {
-  min-height: 320svh;
-  padding: 0;
-}
-
-.warning-stage {
-  position: sticky;
-  top: 0;
-  box-sizing: border-box;
-  min-height: 100svh;
-  width: min(100%, 48rem);
-  margin-inline: auto;
-  padding: clamp(1rem, 4vw, 3rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-section.warning h2 {
-  margin: 0;
-  opacity: clamp(0, calc(var(--story-progress, 0) * 12.5), 1);
-  transform: none;
-  transition: none;
-}
-
-.warning-verses { margin: 0; }
-
-.warning-verses blockquote {
-  margin: 0;
-  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
-  line-height: 1.5;
-}
-
-.warning-verses p { margin: 0; }
-.warning-verses p + p,
-.warning-verses figcaption { margin-top: 1.5rem; }
-
-.warning-verses p,
-.warning-verses figcaption {
+.warning-verses p, .warning-verses figcaption {
   opacity: clamp(0, calc((var(--story-progress, 0) - var(--reveal-at, 0.15)) * 5), 1);
 }
 
-.warning-verses p + p,
-.warning-verses figcaption { --reveal-at: 0.5; }
-
-.seriousness {
-  min-height: 260svh;
-  padding: 0;
-}
-
-.seriousness-stage {
-  position: sticky;
-  top: 0;
-  box-sizing: border-box;
-  min-height: 100svh;
-  width: min(100%, 48rem);
-  margin-inline: auto;
-  padding: clamp(1rem, 4vw, 3rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-section.seriousness h2 {
-  margin: 0;
-  opacity: clamp(0, calc(var(--story-progress, 0) * 12.5), 1);
-  transform: none;
-  transition: none;
-}
+.warning-verses p + p, .warning-verses figcaption { --reveal-at: 0.5; }
 
 .seriousness-hadith {
-  margin: 0;
   opacity: clamp(0, calc((var(--story-progress, 0) - 0.2) * 5), 1);
 }
-
-.seriousness-hadith blockquote {
-  margin: 0 0 1rem;
-  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
-  line-height: 1.5;
-}
-
-.seriousness-hadith p { margin: 0; }
-.seriousness-hadith p + p { margin-top: 1rem; }
