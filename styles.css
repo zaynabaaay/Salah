@@ -8,13 +8,21 @@ body {
   min-height: 100%;
 }
 .sky-scene {
+  position: relative;
   width: 100%;
   height: 100svh;
   overflow: hidden;
 }
-.sky-background {
+.sky-background,
+.cloud-overlay {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.cloud-overlay {
+  pointer-events: none;
 }
