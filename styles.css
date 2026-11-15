@@ -192,6 +192,7 @@ body {
 .subsection-title {
   font-size: clamp(1.8rem, 2.8vw, 2.6rem);
   line-height: 1.15;
+  padding-block: clamp(24px, 6svh, 64px);
 }
 .content-heading {
   font-family: "EB Garamond", serif;
