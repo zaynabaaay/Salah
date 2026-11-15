@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+.sky-scene {
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+.sky-background {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
