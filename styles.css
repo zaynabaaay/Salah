@@ -73,7 +73,7 @@ body {
   height: 100dvh;
 }
 .cloud-layer {
-  --cloud-height: max(100dvh, calc(100vw * 3 / 4));
+  --cloud-height: max(100dvh, calc(100vw * 2048 / 2732));
   position: fixed;
   inset: 0;
   overflow: hidden;
