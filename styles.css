@@ -62,7 +62,6 @@ body {
 }
 .sky-background,
 .cloud-overlay {
-  inset: 0;
   display: block;
   width: 100%;
   object-fit: cover;
@@ -70,12 +69,25 @@ body {
 
 .sky-background {
   position: fixed;
+  inset: 0;
   height: 100dvh;
+}
+.cloud-layer {
+  --cloud-height: max(100dvh, calc(100vw * 3 / 4));
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 .cloud-overlay {
   position: absolute;
-  height: 100%;
-  pointer-events: none;
+  top: calc((100% - var(--cloud-height)) / 2);
+  left: 0;
+  height: var(--cloud-height);
+  transform: translateY(var(--cloud-offset, 0px));
+}
+.cloud-overlay + .cloud-overlay {
+  margin-top: var(--cloud-height);
 }
 
 .opening-copy {
@@ -185,4 +197,5 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .opening-entrance { animation: none; }
   .opening-copy { transform: none; }
+  .cloud-overlay { transform: none; }
 }
