@@ -20,6 +20,7 @@ body {
   margin: 0;
   width: 100%;
   min-height: 100%;
+  background: #020b18;
 }
 .opening {
   height: 200svh;
@@ -33,15 +34,19 @@ body {
 }
 .sky-background,
 .cloud-overlay {
-  position: absolute;
   inset: 0;
   display: block;
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
+.sky-background {
+  position: fixed;
+  height: 100dvh;
+}
 .cloud-overlay {
+  position: absolute;
+  height: 100%;
   pointer-events: none;
 }
 
