@@ -137,6 +137,13 @@ body {
   position: relative;
   color: #F4EDE3;
 }
+.subsection-intro {
+  min-height: 50svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 48px 24px;
+}
 .content-group {
   min-height: 100svh;
   display: grid;
@@ -192,7 +199,6 @@ body {
 .subsection-title {
   font-size: clamp(1.8rem, 2.8vw, 2.6rem);
   line-height: 1.15;
-  padding-block: clamp(24px, 6svh, 64px);
 }
 .content-heading {
   font-family: "EB Garamond", serif;
