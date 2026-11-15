@@ -132,6 +132,7 @@ body {
 }
 
 /* Natural-scroll reading sections. */
+.chapter-opening,
 .reading-section {
   position: relative;
   color: #F4EDE3;
@@ -145,11 +146,52 @@ body {
   padding: 100px max(24px, calc((100vw - 920px) / 2));
   gap: 24px;
 }
+.chapter-label,
+.chapter-title,
+.subsection-title,
 .content-heading,
 .content-text,
 .arabic-verse,
 .source-reference p {
   margin: 0;
+}
+.chapter-label {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(.65rem, .82vw, .78rem);
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.chapter-title,
+.subsection-title {
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  text-align: center;
+  text-wrap: balance;
+}
+.chapter-title {
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  line-height: 1.08;
+}
+.chapter-divider {
+  position: relative;
+  width: 160px;
+  height: 1px;
+  background: currentColor;
+}
+.chapter-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.subsection-title {
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  line-height: 1.15;
 }
 .content-heading {
   font-family: "EB Garamond", serif;
