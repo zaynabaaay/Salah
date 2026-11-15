@@ -1,4 +1,32 @@
 @font-face {
+  font-family: "EB Garamond";
+  src: url("assets/eb-garamond-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("assets/eb-garamond-medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Amiri Quran";
+  src: url("assets/amiri-quran-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("assets/inter-medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
   font-family: "Bodoni Moda";
   src: url("assets/bodoni-moda-regular.ttf") format("truetype");
   font-style: normal;
@@ -90,6 +118,70 @@ body {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Natural-scroll reading sections. */
+.reading-section {
+  position: relative;
+  color: #F4EDE3;
+}
+.content-group {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  padding: 100px max(24px, calc((100vw - 920px) / 2));
+  gap: 24px;
+}
+.content-heading,
+.content-text,
+.arabic-verse,
+.source-reference p {
+  margin: 0;
+}
+.content-heading {
+  font-family: "EB Garamond", serif;
+  font-size: clamp(3rem, 6.8vw, 5.8rem);
+  font-weight: 500;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.content-text {
+  max-width: 680px;
+  font-family: "EB Garamond", serif;
+  font-size: clamp(1.3rem, 2.5vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.55;
+}
+.verse-quotation {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 30px;
+}
+.arabic-verse {
+  max-width: 880px;
+  font-family: "Amiri Quran", serif;
+  font-size: clamp(2.65rem, 5.4vw, 5rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+.source-reference {
+  min-height: 22svh;
+  display: grid;
+  place-items: center;
+  padding: 36px 24px;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+  color: #D3C9BC;
+  text-align: center;
+}
+
+/* Motion preferences. */
 @media (prefers-reduced-motion: reduce) {
   .opening-entrance { animation: none; }
   .opening-copy { transform: none; }
